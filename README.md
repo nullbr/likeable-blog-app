@@ -68,7 +68,7 @@ This is a RESTful API for managing blog posts, users, and ratings. It provides e
   - `422 Unprocessable Entity`: Validation errors (e.g., user already rated the post).
   - `404 Not Found`: User or Post were not found.
 
-### `GET /api/v1/posts/top`
+### `GET /api/v1/posts/top_posts`
 
 - **Description:** Retrieves the top N posts by average rating.
 - **Request Parameters:**
