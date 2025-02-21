@@ -114,3 +114,9 @@ Performance/RedundantMerge:
 
 Performance/TimesMap:
   Enabled: true
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/MultilineAssignmentLayout:
+  EnforcedStyle: same_line
