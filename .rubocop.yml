@@ -1,8 +1,116 @@
-# Omakase Ruby styling for Rails
-inherit_gem: { rubocop-rails-omakase: rubocop.yml }
+# Require additional cops for Rails and RSpec
+require:
+  - rubocop-rspec_rails
 
-# Overwrite or add rules to create your own house style
-#
-# # Use `[a, [b, c]]` not `[ a, [ b, c ] ]`
-# Layout/SpaceInsideArrayLiteralBrackets:
-#   Enabled: false
+plugins:
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-performance
+
+# Inherit default recommended configurations from RuboCop extensions
+inherit_gem:
+  rubocop-rails: config/default.yml
+  rubocop-rspec: config/default.yml
+
+# Set the target Ruby version (adjust as needed)
+AllCops:
+  TargetRubyVersion: 3.2
+  NewCops: enable
+  Exclude:
+    - "bin/**/*"
+    - "db/**/*"
+    - "node_modules/**/*"
+    - "tmp/**/*"
+    - "vendor/**/*"
+
+# Rails-specific rules
+Rails:
+  Enabled: true
+
+Rails/TimeZone:
+  EnforcedStyle: strict
+
+Rails/HttpPositionalArguments:
+  Enabled: false
+
+Rails/Output:
+  Enabled: false
+
+# RSpec-specific rules
+RSpec:
+  Enabled: true
+
+RSpec/ExampleLength:
+  Max: 10
+
+RSpec/MultipleExpectations:
+  Max: 3
+
+RSpec/InstanceVariable:
+  Enabled: false
+
+RSpec/LetSetup:
+  Enabled: false
+
+RSpec/AnyInstance:
+  Enabled: false
+
+RSpec/Focus:
+  Enabled: true
+
+RSpec/NestedGroups:
+  Max: 3
+
+RSpec/ExpectChange:
+  Enabled: true
+
+# Layout & Style Rules
+Layout/LineLength:
+  Max: 120
+
+Layout/EndAlignment:
+  EnforcedStyleAlignWith: variable
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Metrics/MethodLength:
+  Max: 20
+
+Metrics/ClassLength:
+  Max: 150
+
+Metrics/BlockLength:
+  Max: 30
+  Exclude:
+    - "db/migrate/*.rb"
+
+# Disable some strict cops
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
+
+Lint/UselessAssignment:
+  Enabled: false
+
+# Naming Rules
+Naming/PredicateName:
+  Enabled: false
+
+Naming/MemoizedInstanceVariableName:
+  EnforcedStyleForLeadingUnderscores: optional
+
+# Performance Improvements
+Performance/ChainArrayAllocation:
+  Enabled: true
+
+Performance/RedundantMerge:
+  Enabled: true
+
+Performance/TimesMap:
+  Enabled: true

@@ -16,6 +16,6 @@ services:
     tty: true
     stdin_open: true
     volumes:
-      - .:/rails
+      - .:/app
     ports:
       - "3000:3000"
