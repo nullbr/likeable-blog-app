@@ -30,8 +30,6 @@ This is a RESTful API for managing blog posts, users, and ratings. It provides e
   - Retrieves IP addresses that have been used to post by more than one unique user.
   - Returns a list of IP addresses along with an array of the authors (user logins) who posted from that IP.
 
----
-
 ## API Endpoints
 
 ### `POST /api/v1/posts`
@@ -72,16 +70,12 @@ This is a RESTful API for managing blog posts, users, and ratings. It provides e
 - **Response:**
   - `200 OK`: List of IP addresses and associated authors.
 
----
-
 ## Technologies Used
 
 - Ruby on Rails (backend)
 - PostgreSQL (database)
 - Faker (for generating fake data)
 - curl (for making API requests)
-
----
 
 ## Development Setup
 
@@ -134,8 +128,6 @@ docker-compose exec web rails console
 ```sh
 docker-compose down
 ```
-
----
 
 ## Troubleshooting
 
