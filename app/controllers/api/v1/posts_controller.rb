@@ -27,7 +27,8 @@ module Api
 
       def top_posts
         top_n = params[:n].to_i
-        posts = Post.select("posts.id, posts.title, posts.body, AVG(ratings.value) AS average_rating")
+        posts = Post
+          .select("posts.id, posts.title, posts.body, AVG(ratings.value) AS average_rating")
           .joins(:ratings)
           .order("AVG(ratings.value) DESC")
           .group("posts.id")
@@ -37,16 +38,13 @@ module Api
       end
 
       def ip_authors
-        ips = Post.group(:ip)
+        result = Post
+          .select("posts.ip, ARRAY_AGG(DISTINCT users.login) AS authors")
+          .joins(:user)
+          .group(:ip)
           .having("COUNT(DISTINCT user_id) > 1")
-          .pluck(:ip)
 
-        result = ips.map do |ip|
-          authors = User.joins(:posts).where(posts: { ip: ip }).pluck(:login).uniq
-          { ip: ip, authors: authors }
-        end
-
-        render json: result
+        render json: result.as_json(only: %i[ip authors])
       end
 
       private
