@@ -6,6 +6,16 @@
 
 This is a RESTful API for managing blog posts, users, and ratings. It provides endpoints to create posts, rate them, retrieve top-rated posts, and get information about posts based on IP addresses and associated authors. The API supports the following features:
 
+[Features](#features)
+
+[API Endpoints](#api-endpoints)
+
+[Development Setup](#development-setup)
+
+[Troubleshooting](#troubleshooting)
+
+---
+
 ## Features
 
 - **Create a New Post**
@@ -29,6 +39,8 @@ This is a RESTful API for managing blog posts, users, and ratings. It provides e
 - **Get Posts by IP with Multiple Authors**
   - Retrieves IP addresses that have been used to post by more than one unique user.
   - Returns a list of IP addresses along with an array of the authors (user logins) who posted from that IP.
+
+---
 
 ## API Endpoints
 
@@ -70,30 +82,25 @@ This is a RESTful API for managing blog posts, users, and ratings. It provides e
 - **Response:**
   - `200 OK`: List of IP addresses and associated authors.
 
-## Technologies Used
-
-- Ruby on Rails (backend)
-- PostgreSQL (database)
-- Faker (for generating fake data)
-- curl (for making API requests)
+---
 
 ## Development Setup
 
-### **Prerequisites**
+### Prerequisites
 
 Ensure you have the following installed on your machine:
 
 - **Docker**
 - **Docker Compose**
 
-### **Clone the repository**
+### Clone the repository
 
 ```sh
 git clone https://github.com/nullbr/likeable-blog-app.git
 cd likeable-blog-app
 ```
 
-### **Start the development environment**
+### Start the development environment
 
 ```sh
 docker-compose up --build
@@ -103,31 +110,33 @@ This will:
 
 - Build the Docker images
 - Start the PostgreSQL database
-- Start the Rails server at ``
+- Start the Rails server at `http://localhost:3000`
 
-### **Set up the database**
+### Set up the database
 
 ```sh
 docker-compose exec web rails db:create db:migrate
 ```
 
-### **Seed database with mock data**
+### Seed database with mock data
 
 ```sh
 docker-compose exec web rails db:seed
 ```
 
-### **Run the Rails console** (optional)
+### Run the Rails console (optional)
 
 ```sh
 docker-compose exec web rails console
 ```
 
-### **Stop the development environment**
+### Stop the development environment
 
 ```sh
 docker-compose down
 ```
+
+---
 
 ## Troubleshooting
 
