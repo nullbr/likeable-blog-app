@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    command: ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
+    tty: true
+    stdin_open: true
+    volumes:
+      - .:/rails
+    ports:
+      - "3000:3000"
