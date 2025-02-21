@@ -26,9 +26,9 @@ RSpec.describe Post do
 
     context "when there are ratings for the post" do
       before do
-        create(:rating, post: post, user: user, value: 4)
-        create(:rating, post: post, user: user, value: 5)
-        create(:rating, post: post, user: user, value: 3)
+        create(:rating, post: post, user: create(:user), value: 4)
+        create(:rating, post: post, user: create(:user), value: 5)
+        create(:rating, post: post, user: create(:user), value: 3)
       end
 
       it "returns the correct average rating" do

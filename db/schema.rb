@@ -31,6 +31,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_21_004325) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_ratings_on_post_id"
+    t.index ["user_id", "post_id"], name: "index_ratings_on_user_id_and_post_id", unique: true
     t.index ["user_id"], name: "index_ratings_on_user_id"
   end
 
@@ -38,6 +39,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_21_004325) do
     t.string "login", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["login"], name: "index_users_on_login", unique: true
   end
 
   add_foreign_key "posts", "users"

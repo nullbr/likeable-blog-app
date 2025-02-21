@@ -3,4 +3,5 @@ class Rating < ApplicationRecord
   belongs_to :user
 
   validates :value, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 5 }
+  validates :post_id, uniqueness: { scope: :user_id }
 end
