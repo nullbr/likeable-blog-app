@@ -5,9 +5,9 @@ class ApiController < ActionController::API
     render json: { errors: messages }, status:
   end
 
-  def render_record_not_found(record, model_name)
+  def render_record_not_found(record)
     return if record.present?
 
-    render_errors([t("errors.messages.not_found", model_name:)], :not_found)
+    render_errors([t("errors.not_found")], :not_found)
   end
 end

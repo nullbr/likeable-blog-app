@@ -1,19 +1,13 @@
 source "https://rubygems.org"
 
 gem "bootsnap", require: false
-gem "kamal", require: false
 gem "pg", "~> 1.1"
 gem "puma", ">= 5.0"
 gem "rails", "~> 8.0.1"
-gem "solid_cable"
-gem "solid_cache"
-gem "solid_queue"
-gem "thruster", require: false
 gem "tzinfo-data", platforms: %i[windows jruby]
 
 group :development do
   gem "rubocop"
-  gem "rubocop-factory_bot", require: false
   gem "rubocop-performance"
   gem "rubocop-rails"
   gem "rubocop-rspec", require: false

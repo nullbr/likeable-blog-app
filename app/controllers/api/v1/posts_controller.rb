@@ -62,13 +62,13 @@ module Api
       def find_post
         @post = Post.find_by(id: params[:post_id])
 
-        render_record_not_found(@post, "Post")
+        render_record_not_found(@post)
       end
 
       def find_user
         @user = User.find_by(id: params[:user_id])
 
-        render_record_not_found(@user, "User")
+        render_record_not_found(@user)
       end
 
       def post_params
