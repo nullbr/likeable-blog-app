@@ -1,6 +1,6 @@
-threads 5, 16
+workers Integer(Etc.nprocessors)
 
-workers 2
+threads 5, 5
 
 port ENV.fetch("PORT", 3000)
 
