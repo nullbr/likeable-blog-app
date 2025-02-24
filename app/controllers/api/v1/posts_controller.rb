@@ -66,8 +66,6 @@ module Api
       def find_post
         @post = Post.find_by(id: params[:post_id])
 
-        render_errors(["Unable to rate your own Post"]) if @post.present? && @post.user.id == @user.id
-
         render_record_not_found(@post)
       end
 

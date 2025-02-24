@@ -29,7 +29,7 @@ def build_ratings(post)
       user_id: user.id,
       post_id: post.id,
       value: rand(1..5)
-    } unless post.user_id == user.id
+    }
   end.compact
 end
 
